@@ -16,7 +16,7 @@ import { useMovieFetch } from '../hooks/useMovieFetch';
 import NoImage from '../images/no_image.jpg';
 import Actor from './Actor/Actor';
 
-
+import PropTypes from 'prop-types';
 
 const Movie=()=>{
     const {movieId}=useParams();
@@ -52,4 +52,11 @@ const Movie=()=>{
         </>
     )
 }
+
+Actor.proptypes ={
+    name:PropTypes.string,
+    character:PropTypes.string,
+    imageURl:PropTypes.string,
+}
+
 export default Movie;

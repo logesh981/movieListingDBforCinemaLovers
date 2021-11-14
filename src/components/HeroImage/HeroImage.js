@@ -1,5 +1,7 @@
 import React from 'react';
 
+import PropTypes from 'prop-types';
+
 import {Wrapper,Content,Text} from './HeroImage.syles';
 
 const HeroImage =({image,title,text})=>(
@@ -13,4 +15,9 @@ const HeroImage =({image,title,text})=>(
     </Wrapper>
 )
 
+HeroImage.propTypes ={
+    image:PropTypes.string,
+    title:PropTypes.string,
+    text:PropTypes.string
+}
 export default HeroImage
