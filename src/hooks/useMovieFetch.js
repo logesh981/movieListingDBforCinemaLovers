@@ -3,7 +3,7 @@ import {useState,useEffect,useCallback} from 'react';
 import API from '../API';
 //helpers
 
-import {isPersistedState, ispersistedState} from '../helpers';
+import {isPersistedState} from '../helpers';
 
 export const useMovieFetch = movieId =>{
     const [state,setState]=useState({});
