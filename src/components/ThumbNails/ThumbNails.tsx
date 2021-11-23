@@ -1,12 +1,17 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
 import {Image} from './ThumbNails.styles';
+//type
 
-const ThumbNails =({image,movieId,clickable})=>(
+type Props={
+    image:string;
+    movieId?:number;
+    clickable:boolean;
+}
+const ThumbNails:React.FC<Props> =({image,movieId,clickable})=>(
     <div>
         {
         clickable? (
@@ -21,10 +26,6 @@ const ThumbNails =({image,movieId,clickable})=>(
     </div>
 );
 
-ThumbNails.propTypes={
-    image:PropTypes.string,
-    movieId:PropTypes.number,
-    clickable:PropTypes.bool
-}
+
 
 export default ThumbNails;

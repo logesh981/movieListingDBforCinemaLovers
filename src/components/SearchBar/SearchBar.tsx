@@ -1,12 +1,16 @@
-import react,{useState,useEffect,useRef} from 'react';
+import React,{useState,useEffect,useRef} from 'react';
 
-import PropTypes from 'prop-types';
+
 
 import searchIcon from '../../images/search-icon.svg';
 
 import {Wrapper,Content} from './SearchBar.styles';
+//types
 
-const SearchBar=({setSearchTerm})=>{
+type Props={
+    setSearchTerm:React.Dispatch<React.SetStateAction<string>>
+}
+const SearchBar:React.FC<Props>=({setSearchTerm})=>{
     // Dual states for delayed Response
     const [state,setState] =useState('');
     //Trick to skipp the initial REnder 
@@ -40,7 +44,5 @@ const SearchBar=({setSearchTerm})=>{
     )
 }
 
-SearchBar.propTypes={
-    setSearchTerm:PropTypes.func
-}
+
 export default SearchBar;

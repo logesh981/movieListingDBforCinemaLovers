@@ -1,12 +1,15 @@
 import {useState,useEffect,useCallback} from 'react';
 
-import API from '../API';
+import API,{Movie,Cast,Crew} from '../API';
 //helpers
 
 import {isPersistedState} from '../helpers';
+//type
 
-export const useMovieFetch = movieId =>{
-    const [state,setState]=useState({});
+export type MovieState=Movie &{actors:Cast[],directors:Crew[]}
+
+export const useMovieFetch = (movieId:number) =>{
+    const [state,setState]=useState<MovieState>({} as MovieState);
     const [loading,setLoading]=useState(true);
     const [error,setError]=useState(false);
     //To stop infinity loop
@@ -36,7 +39,7 @@ export const useMovieFetch = movieId =>{
             }
         }
 
-        const sessionState=isPersistedState(movieId);
+        const sessionState=isPersistedState(movieId.toString());
         if(sessionState){
             setState(sessionState);
             setLoading(false);
@@ -47,7 +50,7 @@ export const useMovieFetch = movieId =>{
 
     //storing to sessionstorage
     useEffect(()=>{
-        sessionStorage.setItem(movieId,JSON.stringify(state));
+        sessionStorage.setItem(movieId.toString(),JSON.stringify(state));
     },[movieId,state])
     return {state,loading,error};
 };

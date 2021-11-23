@@ -16,11 +16,11 @@ import { useMovieFetch } from '../hooks/useMovieFetch';
 import NoImage from '../images/no_image.jpg';
 import Actor from './Actor/Actor';
 
-import PropTypes from 'prop-types';
 
-const Movie=()=>{
+
+const Movie:React.FC =()=>{
     const {movieId}=useParams();
-    const {state:movie,loading,error}=useMovieFetch(movieId);
+    const {state:movie,loading,error} = useMovieFetch(Number(movieId));
 
     // console.log(movie);
     if(loading) return <Spinner/>;
@@ -53,10 +53,6 @@ const Movie=()=>{
     )
 }
 
-Actor.proptypes ={
-    name:PropTypes.string,
-    character:PropTypes.string,
-    imageURl:PropTypes.string,
-}
+
 
 export default Movie;

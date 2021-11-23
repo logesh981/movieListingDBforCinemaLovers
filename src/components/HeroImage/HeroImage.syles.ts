@@ -1,6 +1,10 @@
 import styled from 'styled-components';
 
-export const Wrapper=styled.div`
+type Props={
+    image:string;
+}
+
+export const Wrapper=styled.div<Props>`
     background:linear-gradient(
         to bottom,rgba(0,0,0,0)
         41%,rgba(0,0,0,0.65)
@@ -9,7 +13,7 @@ export const Wrapper=styled.div`
     url(${({image})=>image}),
     var(--darkGrey);
     background-size:100%,cover;
-    backround-position:center;
+    background-position:center;
     height:600px;
     position:relative;
     animation:animateHeroImage 1s;
@@ -29,7 +33,7 @@ export const Wrapper=styled.div`
 export const Content= styled.div`
     padding:20px;
     max-width:var(--max-width);
-    marging:0 auto;
+    margin:0 auto;
 `;
 
 export const Text=styled.div`

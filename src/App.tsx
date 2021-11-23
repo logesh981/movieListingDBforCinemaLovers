@@ -13,8 +13,8 @@ import NotFound from './components/NotFound';
 //Routing
 import {BrowserRouter as Router,Routes,Route} from 'react-router-dom';
 
-const App =() =>  (
-    <Router className="App">
+const App:React.FC =() =>  (
+    <Router >
       <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>

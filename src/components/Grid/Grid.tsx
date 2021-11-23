@@ -1,10 +1,13 @@
 import React from 'react';
 
-import PropTypes from 'prop-types';
+
 
 import {Wrapper,Content} from './Grid.stles';
-
-const Grid =({header,children})=>(
+//types
+type Props = {
+   header:string; 
+}
+const Grid:React.FC<Props> =({header,children})=>(
     <Wrapper>
         <h1>
             {header}
@@ -13,8 +16,5 @@ const Grid =({header,children})=>(
     </Wrapper>
 )
 
-Grid.propTypes={
-    header:PropTypes.string
-}
 
 export default Grid;
